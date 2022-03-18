@@ -3,7 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors');
-
+const userrouter = require('./router/userRouter');
+const noteRouter = require('./router/noteRouter')
 
 const app = express();
 
@@ -14,6 +15,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+
+
+
+
+
+//route....
+
+app.use('/user', userrouter)
+
+
+app.use('/api/notes', noteRouter)
 
 
 
