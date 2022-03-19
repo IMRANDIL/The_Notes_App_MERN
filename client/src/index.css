@@ -1,5 +1,12 @@
-body {
+
+*{
+  padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+ 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +17,151 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+
+body{
+  background: url('../public/notes.svg') no-repeat left fixed;
+}
+
+
+.notes-page{
+  width: 100%;
+  min-height: 100vh;
+  color: whitesmoke;
+}
+
+
+.notes-page header{
+  max-width: 1920px;
+  min-height: 100px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.788);
+  border-bottom: 4px solid rgba(197, 34, 34, 0.705);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+a{
+  text-decoration: none;
+  color: whitesmoke
+}
+
+
+.notes-page header .logo{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+.notes-page header ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+
+.notes-page header ul li a{
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+
+
+.notes-page header ul li a:hover{
+  opacity: 1;
+}
+
+
+.notes-page section{
+  width: 100%;
+box-shadow: 0 0 50px rgb(7,25,63);
+padding: 20px 0;
+color: black;
+
+
+}
+
+
+.note-wrapper{
+  max-width: 1920px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+ 
+  
+}
+
+
+.card{
+  width: 300px;
+  box-shadow: 0 0 50px rgb(7,25,63);
+  background-color:rgb(7,25,63);
+  color: #ddd;
+  padding: 10px;
+  position: relative;
+  margin: 15px;
+  border: 2px solid whitesmoke;
+  border-radius: 7px;
+  cursor: pointer;
+ 
+}
+
+
+.card .close{
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  color: red;
+  border:none;
+  font-weight: 900;
+  outline: none;
+
+}
+
+.card .close:hover{
+  background-color: black;
+  color: whitesmoke;
+}
+
+.card h4{
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card .text-wrapper{
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  margin: 10px 0;
+  color: #fff9;
+}
+
+.card .date{
+  text-align: right;
+  color: wheat;
+}
+
+.card-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
 }

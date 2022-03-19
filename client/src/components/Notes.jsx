@@ -22,20 +22,20 @@ const Notes = ({ setIsLogin }) => {
         <BrowserRouter>
             <div className='notes-page'>
                 <Nav setIsLogin={setIsLogin} />
+                <section>
+                    <Routes>
 
-                <Routes>
-
-                    <Route path='/' element={<Home />} />
-                    <Route path='/create' element={<CreateNote />} />
-                    <Route path='/edit/:id' element={<EditNote />} />
-
-
+                        <Route path='/' element={<Home />} />
+                        <Route path='/create' element={<CreateNote />} />
+                        <Route path='/edit/:id' element={<EditNote />} />
 
 
 
 
-                </Routes>
 
+
+                    </Routes>
+                </section>
 
             </div>
         </BrowserRouter>
