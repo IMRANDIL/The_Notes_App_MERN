@@ -1,10 +1,31 @@
-
+import React, { useState, useEffect } from 'react'
 import './App.css';
+import axios from 'axios';
+
+import Login from './components/Login';
+
+import Notes from './components/Notes';
+
+
+
+
+
 
 function App() {
+
+  const [isLogin, setIsLogin] = useState(false)
+
+
+
   return (
     <div className="App">
-      hey ali
+
+      {
+        isLogin ? <Notes /> : <Login />
+      }
+
+
+
     </div>
   );
 }
