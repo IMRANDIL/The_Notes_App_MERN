@@ -18,11 +18,40 @@ function App() {
 
 
 
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      const token = localStorage.getItem('token');
+
+      if (token) {
+        const verified = await axios.get('/user/verify', {
+          headers: {
+            Authorization: token
+          }
+        });
+        setIsLogin(verified.data)
+        if (verified.data === false) return localStorage.clear();
+
+
+      } else {
+        setIsLogin(false)
+      }
+    }
+
+    checkLogin()
+
+  }, [])
+
+
+
+
+
+
   return (
     <div className="App">
       <ToastContainer />
       {
-        isLogin ? <Notes /> : <Login />
+        isLogin ? <Notes /> : <Login setIsLogin={setIsLogin} />
       }
 
 

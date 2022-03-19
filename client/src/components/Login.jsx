@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 
 
-const Login = () => {
+const Login = ({ setIsLogin }) => {
 
     const [user, setUser] = useState({
         name: '',
@@ -15,7 +15,7 @@ const Login = () => {
         password: ''
     });
 
-    const [err, setErr] = useState('')
+    // const [err, setErr] = useState('')
 
 
 
@@ -49,7 +49,43 @@ const Login = () => {
                 password: ''
             })
 
-            toast.success(res.data.msg)
+            toast.success(res.data.msg);
+
+
+        } catch (error) {
+
+            toast.error(error.response.data.msg)
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    const handlelogin = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('/user/login', {
+
+                email: user.email,
+                password: user.password
+            });
+
+            localStorage.setItem('token', res.data.token)
+            setUser({
+
+                email: '',
+                password: ''
+            })
+
+            toast.success(res.data.msg);
+            setIsLogin(true)
 
         } catch (error) {
 
@@ -68,7 +104,7 @@ const Login = () => {
         <section>
             <div className="login">
                 <h2>Login</h2>
-                <form>
+                <form onSubmit={handlelogin}>
                     <input type="email" placeholder='Email' value={user.email} onChange={onChangeInput} name='email' id='login-email' required autoComplete='off' />
                     <input type="password" placeholder='Password' value={user.password} onChange={onChangeInput} name='password' id='login-password' required autoComplete='true' />
 
