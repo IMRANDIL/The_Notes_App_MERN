@@ -14,6 +14,7 @@ exports.userRegister = async (req, res, next) => {
     try {
 
         const { username, email, password } = req.body;
+
         const user = await User.findOne({ email: email });
 
         if (user) return res.status(400).json({ msg: 'E-mail already exists!' });
