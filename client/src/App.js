@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       <ToastContainer />
       {
-        isLogin ? <Notes /> : <Login setIsLogin={setIsLogin} />
+        isLogin ? <Notes setIsLogin={setIsLogin} /> : <Login setIsLogin={setIsLogin} />
       }
 
 

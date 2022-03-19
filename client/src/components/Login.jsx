@@ -76,16 +76,20 @@ const Login = ({ setIsLogin }) => {
                 email: user.email,
                 password: user.password
             });
-
-            localStorage.setItem('token', res.data.token)
+            localStorage.setItem('token', res.data.token);
             setUser({
-
+                name: '',
                 email: '',
                 password: ''
             })
 
-            toast.success(res.data.msg);
+
+
             setIsLogin(true)
+
+
+            toast.success(res.data.msg);
+
 
         } catch (error) {
 
