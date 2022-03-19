@@ -3,6 +3,11 @@ const User = require('../models/userModal')
 
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+
+
+//register.......
+
+
 exports.userRegister = async (req, res, next) => {
 
 
@@ -71,6 +76,40 @@ exports.userLogin = async (req, res, next) => {
 
 
         res.status(200).json({ token: token, username: user.username })
+
+
+    } catch (error) {
+        return res.status(500).json({ msg: error.message })
+    }
+}
+
+
+
+
+//verified user........
+
+
+exports.verifiedUser = async (req, res, next) => {
+    try {
+
+        const token = req.header('Authorization');
+
+        if (!token) return res.send(false)
+
+
+        jwt.verify(token, process.env.SECRET, async (err, verified) => {
+            if (err) return res.send(false);
+
+            const user = await User.findById(verified.id);
+
+            if (!user) return res.send(false)
+
+            return res.send(true)
+
+
+
+        })
+
 
 
     } catch (error) {
