@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getNotes, createNote } = require('../controllers/note');
+const { getNotes, createNote, deleteNote, getoneNote, updateNote } = require('../controllers/note');
 
 
 const { auth } = require('../middlewares/auth')
@@ -10,7 +10,7 @@ const { auth } = require('../middlewares/auth')
 router.route('/').get(auth, getNotes).post(auth, createNote)
 
 
-router.route('/:id').get().put().delete()
+router.route('/:id').get(auth, getoneNote).put(auth, updateNote).delete(auth, deleteNote)
 
 
 

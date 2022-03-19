@@ -49,3 +49,60 @@ exports.createNote = async (req, res, next) => {
         return res.status(500).json({ msg: error.message })
     }
 }
+
+
+
+//delete note.....
+
+
+exports.deleteNote = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await Note.findByIdAndDelete(id);
+        res.status(200).json({ msg: 'Deleted a note!' })
+
+
+    } catch (error) {
+        return res.status(500).json({ msg: error.message })
+    }
+}
+
+
+//update note....
+
+
+exports.updateNote = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { title, content, date } = req.body;
+
+        await Note.findOneAndUpdate({ _id: id }, {
+            title,
+            content,
+            date
+        });
+
+        res.status(200).json({ msg: 'Successfully updated!' })
+
+    } catch (error) {
+        return res.status(500).json({ msg: error.message })
+    }
+}
+
+
+
+//get one....
+
+exports.getoneNote = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const note = await Note.findOne({ _id: id });
+
+        res.status(200).json(note)
+
+
+    } catch (error) {
+        return res.status(500).json({ msg: error.message })
+    }
+}
