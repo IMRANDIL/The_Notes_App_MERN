@@ -17,7 +17,7 @@ const Login = ({ setIsLogin }) => {
 
     // const [err, setErr] = useState('')
 
-
+    const [onLogin, setOnLogin] = useState(false)
 
 
 
@@ -61,7 +61,10 @@ const Login = ({ setIsLogin }) => {
 
 
 
-
+    const style = {
+        visibility: onLogin ? "visible" : "hidden",
+        opactiy: onLogin ? 1 : 0
+    }
 
 
 
@@ -105,8 +108,8 @@ const Login = ({ setIsLogin }) => {
 
 
     return (
-        <section>
-            <div className="login">
+        <section className='login-page'>
+            <div className="login create-note">
                 <h2>Login</h2>
                 <form onSubmit={handlelogin}>
                     <input type="email" placeholder='Email' value={user.email} onChange={onChangeInput} name='email' id='login-email' required autoComplete='off' />
@@ -117,13 +120,13 @@ const Login = ({ setIsLogin }) => {
 
                     <p>You don't have an account?{" "}
 
-                        <span>Register Now</span>
+                        <span onClick={() => setOnLogin(true)}>Register Now</span>
                     </p>
                     {/* <h3>{err}</h3> */}
                 </form>
             </div>
 
-            <div className="register">
+            <div className="register create-note" style={style}>
                 <h2>Register</h2>
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder='userName' value={user.name} onChange={onChangeInput} name='name' id='register-namne' required autoComplete='off' />
@@ -135,7 +138,7 @@ const Login = ({ setIsLogin }) => {
 
                     <p>You already have an account?{" "}
 
-                        <span>Login Now</span>
+                        <span onClick={() => setOnLogin(false)}>Login Now</span>
                     </p>
 
                     {/* <h3>{err}</h3> */}

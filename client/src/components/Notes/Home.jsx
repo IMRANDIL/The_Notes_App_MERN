@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { format } from 'timeago.js';
+// import { format } from 'timeago.js';
 import axios from 'axios'
 import { toast } from 'react-toastify';
 
-
+import timeago from 'timeago.js';
 
 
 
@@ -17,6 +17,7 @@ import { toast } from 'react-toastify';
 
 
 const Home = () => {
+    var timeagoInstance = timeago();
 
     const [notes, setNotes] = useState([]);
     const [token, setToken] = useState('')
@@ -108,7 +109,7 @@ const Home = () => {
                             <p>{note.content}</p>
 
                         </div>
-                        <p className='date'>{format(note.date)}</p>
+                        <p className='date'>{timeagoInstance.format(note.date)}</p>
                         <div className="card-footer">
                             {note.name}
                             <Link to={`edit/${note._id}`}>Edit</Link>

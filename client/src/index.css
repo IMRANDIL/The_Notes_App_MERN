@@ -22,7 +22,7 @@ code {
 
 
 body{
-  background: url('../public/notes.svg') no-repeat left fixed;
+  background: url('./image/notes.svg') no-repeat left fixed;
 }
 
 
@@ -175,11 +175,12 @@ color: black;
   max-width: 500px;
   width: 100%;
   margin: auto;
-  border: 7px solid rgba(0, 0, 0, 0.555);
+  border: 7px solid rgba(241, 86, 86, 0.418);
   padding: 30px;
   background-color: rgba(0, 0, 0, 0.596);
   color: white;
   border-radius: 10px;
+ 
 }
 
 
@@ -244,6 +245,57 @@ color: black;
   outline: none;
   border: 1px solid rgb(216, 42, 42);
 }
+
+
+
+.login-page{
+  position:relative;
+  width: 100%;
+  min-height: 100vh;
+ 
+}
+
+
+
+.login input,
+.register input
+{
+ margin-bottom: 15px;
+}
+
+
+
+.login,.register{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgb(63,9,63);
+  
+}
+
+.login-page h2,
+.login-page h3{
+  color: #fff8;
+}
+
+.login-page p{
+  margin: 10px 0;
+  color: white;
+}
+
+
+.login-page span:hover{
+  color: orange;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
 
 
 
