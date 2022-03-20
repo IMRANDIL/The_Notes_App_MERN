@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { format } from 'timeago.js';
 import axios from 'axios'
+import { toast } from 'react-toastify';
 
 
 
@@ -71,7 +72,7 @@ const Home = () => {
                         Authorization: token
                     }
                 });
-
+                toast.success('Note Deleted!')
                 getNotes(token)
             }
 
