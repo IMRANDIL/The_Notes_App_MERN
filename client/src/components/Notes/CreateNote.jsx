@@ -93,7 +93,7 @@ const CreateNote = () => {
 
                 <div className="row">
 
-                    <input type="date" id='Date' name='date' onChange={onChange} required />
+                    <input type="date" id='Date' name='date' onChange={onChange} />
                 </div>
 
                 <button type='submit'>Save</button>
