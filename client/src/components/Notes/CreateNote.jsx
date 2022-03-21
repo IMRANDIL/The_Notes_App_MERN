@@ -44,7 +44,7 @@ const CreateNote = () => {
                 const { title, content, date } = note;
 
                 const newNote = {
-                    title, content, date
+                    title, content, date: date ? date : new Date()
                 }
 
                 await axios.post('/api/notes', newNote, {

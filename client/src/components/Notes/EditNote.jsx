@@ -45,6 +45,8 @@ const EditNote = () => {
             Authorization: token
           }
         })
+
+
         setNote({
           title: data.title,
           content: data.content,
